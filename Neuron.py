@@ -44,11 +44,14 @@ y = np.array([0, 0, 0, 1])
 X_OR = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
 y_OR = np.array([0, 1, 1, 1])
 
+X_XOR = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
+y_XOR = np.array([0, 1, 1, 0])
+
 # Create a neuron with 2 inputs for the AND gate
 neuron = Neuron(num_inputs=2)
 
 # Train for 1000 epochs with a learning rate of 0.1
-train(neuron, X_OR, y_OR, epochs=10000, learning_rate=0.4)
+train(neuron, X_XOR, y_XOR, epochs=10000, learning_rate=0.4)
 
 print("\nTesting the trained neuron:")
 for inputs in X:
