@@ -34,18 +34,21 @@ def train(neuron, X, y, epochs=1000, learning_rate=0.1):
         if (epoch + 1) % 100 == 0:
             avg_loss = total_loss / len(y)
             print(f'Epoch {epoch + 1}: loss={avg_loss:.3f}')
-            print(f'Weights: {neuron.weights}, Bias: {neuron.bias}')
+            print(f'Weights: {neuron.weights[0]:.4f}, {neuron.weights[1]:.4f}; Bias: {neuron.bias:.4f}')
 
     
 
 X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
 y = np.array([0, 0, 0, 1])
 
+X_OR = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
+y_OR = np.array([0, 1, 1, 1])
+
 # Create a neuron with 2 inputs for the AND gate
 neuron = Neuron(num_inputs=2)
 
 # Train for 1000 epochs with a learning rate of 0.1
-train(neuron, X, y, epochs=100000, learning_rate=0.4)
+train(neuron, X_OR, y_OR, epochs=10000, learning_rate=0.4)
 
 print("\nTesting the trained neuron:")
 for inputs in X:
